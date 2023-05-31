@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- Leafletjs's CSS  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <!-- Leafletjs's script  -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- font link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- main CSS file -->
+    <link rel="stylesheet" href="src/style.css" />
+
+    <title>IP Address Tracker | Frontend Mentor</title>
+  </head>
+  <body>
+    <main>
+      <h1>IP Address Tracker</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search for any IP address or domain"
+        />
+        <button id="submit-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="9.182"
+            height="14.121"
+            viewBox="0 0 9.182 14.121"
+          >
+            <path
+              id="icon-arrow"
+              d="M2,1,8,7,2,13"
+              transform="translate(-0.939 0.061)"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+            />
+          </svg>
+        </button>
+      </div>
+      <section class="result-sec">
+        <div class="part">
+          <label>IP Address</label>
+          <div id="display-IP"></div>
+        </div>
+        <div class="part">
+          <label>Location</label>
+          <div id="display-location"></div>
+        </div>
+        <div class="part">
+          <label>Timzone</label>
+          <div id="display-timezone"></div>
+        </div>
+        <div class="part">
+          <label>ISP</label>
+          <div id="display-ISP"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="map"></div>
+
+    <!-- Error popup  -->
+    <div id="popup">Errors are placed here</div>
+
+    <!-- footer  -->
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Sara Tolooti</a>.
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/app.js"></script>
+  </body>
+</html>
