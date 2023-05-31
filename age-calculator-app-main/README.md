@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution](https://your-solution-url.com)
-- [View Live site](https://your-live-site-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/responsive-age-calculator-html-css-js-K8ud5lJAgn)
+- [View Live site](https://saratolooti.github.io/Challenges/age-calculator-app-main/)
 
 ## My process
 
