@@ -63,7 +63,7 @@ async function searchOperation() {
 /* -------------- draw map after each search -------------- */
 function drawMap(lat, lng) {
   let locationIcon = L.icon({
-    iconUrl: "../images/icon-location.svg",
+    iconUrl: "./images/icon-location.svg",
 
     iconSize: [47, 56.26], // size of the icon
     iconAnchor: [23, 60], // point of the icon which will correspond to marker's location
