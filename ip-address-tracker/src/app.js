@@ -7,6 +7,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+let marker = {};
+
 //removing the default zoom btns from map
 document.querySelector(".leaflet-control-zoom").style.display = "none";
 document.querySelector(".leaflet-control-container").style.opacity = "0";
@@ -20,6 +22,10 @@ let value = "192.212.174.101";
 
 searchBtn.addEventListener("click", () => {
   searchOperation();
+});
+
+searchInp.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") searchOperation();
 });
 
 async function fetchData() {
@@ -49,6 +55,8 @@ async function searchOperation() {
   ).textContent = `UTC ${result.location.timezone}`;
   document.getElementById("display-ISP").textContent = result.isp;
 
+  // rmeove the previous marker
+  map.removeLayer(marker);
   drawMap(result.location.lat, result.location.lng);
 }
 
@@ -62,7 +70,7 @@ function drawMap(lat, lng) {
   });
 
   map.flyTo([lat, lng], 13);
-  L.marker([lat, lng], { icon: locationIcon }).addTo(map);
+  marker = L.marker([lat, lng], { icon: locationIcon }).addTo(map);
 }
 
 /* -------------- display whenever error occurs -------------- */
