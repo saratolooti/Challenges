@@ -76,6 +76,7 @@ function drawMap(lat, lng) {
 /* -------------- display whenever error occurs -------------- */
 function showError() {
   let errorPopup = document.getElementById("popup");
+  errorPopup.style.display = "inline-block";
   errorPopup.style.right = "10px";
   errorPopup.textContent = "Inserta a valid Domain or IP!";
 

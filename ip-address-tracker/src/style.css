@@ -132,6 +132,7 @@ main h1 {
 
 /* ---- error popup ---- */
 #popup {
+  display: none;
   color: #fff;
   position: absolute;
   bottom: 20px;
@@ -200,8 +201,8 @@ main h1 {
   .result-sec .part {
     width: 100%;
     height: 100%;
-    padding: 0;
-    margin: 0.5em;
+    padding: 0.5em;
+    margin: 0;
   }
 
   #map {
