@@ -29,35 +29,34 @@ searchInp.addEventListener("keydown", (e) => {
 });
 
 async function fetchData() {
-  try {
-    const res = await fetch(
-      `https://geo.ipify.org/api/v1?apiKey=${API_Key}&domain=${searchInp.value}`
-    );
+  const res = await fetch(
+    `https://geo.ipify.org/api/v1?apiKey=${API_Key}&domain=${searchInp.value}`
+  );
 
-    const data = await res.json();
+  const data = await res.json();
 
-    return data;
-  } catch (error) {
-    console.log("here");
-    showError();
-  }
+  return data;
 }
 
 async function searchOperation() {
-  let result = await fetchData();
+  try {
+    let result = await fetchData();
 
-  document.getElementById("display-IP").textContent = result.ip;
-  document.getElementById(
-    "display-location"
-  ).textContent = `${result.location.region},\n${result.location.city}`;
-  document.getElementById(
-    "display-timezone"
-  ).textContent = `UTC ${result.location.timezone}`;
-  document.getElementById("display-ISP").textContent = result.isp;
+    document.getElementById("display-IP").textContent = result.ip;
+    document.getElementById(
+      "display-location"
+    ).textContent = `${result.location.region},\n${result.location.city}`;
+    document.getElementById(
+      "display-timezone"
+    ).textContent = `UTC ${result.location.timezone}`;
+    document.getElementById("display-ISP").textContent = result.isp;
 
-  // rmeove the previous marker
-  map.removeLayer(marker);
-  drawMap(result.location.lat, result.location.lng);
+    // rmeove the previous marker
+    map.removeLayer(marker);
+    drawMap(result.location.lat, result.location.lng);
+  } catch (error) {
+    showError("Inserta a valid Domain or IP!");
+  }
 }
 
 /* -------------- draw map after each search -------------- */
@@ -74,15 +73,15 @@ function drawMap(lat, lng) {
 }
 
 /* -------------- display whenever error occurs -------------- */
-function showError() {
+function showError(message) {
   let errorPopup = document.getElementById("popup");
   errorPopup.style.display = "inline-block";
   errorPopup.style.right = "10px";
-  errorPopup.textContent = "Inserta a valid Domain or IP!";
+  errorPopup.textContent = message;
 
   setTimeout(() => {
     errorPopup.style.right = "-500px";
-  }, 3000);
+  }, 3500);
 }
 
 //getting and displaying actaul Ip of user
